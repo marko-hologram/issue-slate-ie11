@@ -1,4 +1,3 @@
-// @ts-nocheck
 if (typeof window !== 'undefined') {
   /*!
    * https://developer.mozilla.org/en-US/docs/Web/API/Element/closest#polyfill
