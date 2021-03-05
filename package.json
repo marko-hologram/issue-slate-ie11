@@ -9,7 +9,11 @@
   },
   "dependencies": {
     "next": "10.0.7",
+    "next-compose-plugins": "^2.2.1",
+    "next-transpile-modules": "^6.3.0",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "slate": "^0.59.0",
+    "slate-react": "^0.59.0"
   }
 }
