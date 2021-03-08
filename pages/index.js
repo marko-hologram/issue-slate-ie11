@@ -109,6 +109,7 @@ export default function Home() {
 
       <Slate editor={editor} value={value} onChange={(newValue) => setValue(newValue)}>
         <button
+          style={{ color: CustomEditor.isBoldMarkActive(editor) ? 'red' : '' }}
           onMouseDown={(event) => {
             event.preventDefault();
             CustomEditor.toggleBoldMark(editor);

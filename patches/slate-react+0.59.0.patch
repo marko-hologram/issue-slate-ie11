@@ -1,0 +1,43 @@
+diff --git a/node_modules/slate-react/dist/index.es.js b/node_modules/slate-react/dist/index.es.js
+index 7b693c2..4245683 100644
+--- a/node_modules/slate-react/dist/index.es.js
++++ b/node_modules/slate-react/dist/index.es.js
+@@ -357,7 +357,7 @@ var ReactEditor = {
+     // https://github.com/ianstormtaylor/slate/issues/1819
+ 
+     try {
+-      targetEl = isDOMElement(target) ? target : target.parentElement;
++      targetEl = isDOMElement(target) ? target : target.parentNode;
+     } catch (err) {
+       if (!err.message.includes('Permission denied to access property "nodeType"')) {
+         throw err;
+@@ -475,10 +475,10 @@ var ReactEditor = {
+     // zero-width node has an offset of 1 so we have to check if we are in a zero-width node and
+     // adjust the offset accordingly.
+ 
+-    var startEl = isDOMElement(startNode) ? startNode : startNode.parentElement;
+-    var isStartAtZeroWidth = !!startEl.getAttribute('data-slate-zero-width');
+-    var endEl = isDOMElement(endNode) ? endNode : endNode.parentElement;
+-    var isEndAtZeroWidth = !!endEl.getAttribute('data-slate-zero-width');
++    var startEl = isDOMElement(startNode) ? startNode : startNode.parentNode;
++    var isStartAtZeroWidth = startEl ? !!startEl.getAttribute('data-slate-zero-width') : false;
++    var endEl = isDOMElement(endNode) ? endNode : endNode.parentNode;
++    var isEndAtZeroWidth = endEl ? !!endEl.getAttribute('data-slate-zero-width') : false;
+     domRange.setStart(startNode, isStartAtZeroWidth ? 1 : startOffset);
+     domRange.setEnd(endNode, isEndAtZeroWidth ? 1 : endOffset);
+     return domRange;
+@@ -1573,10 +1573,10 @@ var Editable = props => {
+       }
+ 
+       var leafEl = newDomRange.startContainer.parentElement;
+-      scrollIntoView(leafEl, {
+-        scrollMode: 'if-needed',
+-        boundary: el
+-      });
++      // scrollIntoView(leafEl, {
++      //   scrollMode: 'if-needed',
++      //   boundary: el
++      // });
+     } else {
+       domSelection.removeAllRanges();
+     }

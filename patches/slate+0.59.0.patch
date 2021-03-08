@@ -1,0 +1,14 @@
+diff --git a/node_modules/slate/dist/index.es.js b/node_modules/slate/dist/index.es.js
+index ad3f152..ede64ae 100644
+--- a/node_modules/slate/dist/index.es.js
++++ b/node_modules/slate/dist/index.es.js
+@@ -1,6 +1,8 @@
+ import isPlainObject from 'is-plain-object';
+ import { reverse } from 'esrever';
+-import { produce, createDraft, finishDraft, isDraft } from 'immer';
++import { produce, createDraft, finishDraft, isDraft, enableES5 } from 'immer';
++
++enableES5();
+ 
+ function _defineProperty(obj, key, value) {
+   if (key in obj) {
